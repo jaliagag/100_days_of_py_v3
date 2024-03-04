@@ -1,17 +1,22 @@
+# source: https://www.youtube.com/watch?v=zxFXnLEmnb4
+
 from email.message import EmailMessage
-from passwords import EMAIL_PASSWORD
+from passwords import EMAIL_PASSWORD, EMAIL_SENDER, EMAIL_RECEIVER, EMAIL_BODY, EMAIL_SUBJECT
 import ssl
 import smtplib
 
-email_sender =  "jaliagadevpythonmailer@gmail.com"
+email_sender = EMAIL_SENDER
 email_password = EMAIL_PASSWORD
 
-email_receiver = "jmfaliaga@gmail.com"
+#email_receiver = "jmfaliaga@gmail.com"
+email_receiver = EMAIL_RECEIVER
 
-subject = "dummy subject"
+subject = EMAIL_SUBJECT
 
 body = """
-this be a test
+sending you a dummy email biotchhhhh 
+100 days of piton, day 1 :) 
+este va a ser el repo que voy a usar para llevar registro, ademas del calendario: https://github.com/jaliagag/100_days_of_py_v3
 """
 
 em = EmailMessage()
