@@ -7,17 +7,9 @@ import smtplib
 
 email_sender = EMAIL_SENDER
 email_password = EMAIL_PASSWORD
-
-#email_receiver = "jmfaliaga@gmail.com"
 email_receiver = EMAIL_RECEIVER
-
 subject = EMAIL_SUBJECT
-
-body = """
-sending you a dummy email biotchhhhh 
-100 days of piton, day 1 :) 
-este va a ser el repo que voy a usar para llevar registro, ademas del calendario: https://github.com/jaliagag/100_days_of_py_v3
-"""
+body = EMAIL_BODY
 
 em = EmailMessage()
 
@@ -28,6 +20,8 @@ em.set_content(body)
 
 context = ssl.create_default_context()
 
-with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as smtp:
-    smtp.login(email_sender,email_password)
-    smtp.sendmail(email_sender,email_receiver,em.as_string())
+for i in email_receiver:
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as smtp:
+        smtp.login(email_sender,email_password)
+        smtp.sendmail(email_sender,i,em.as_string())
+    print(f"email sent to {i}")
