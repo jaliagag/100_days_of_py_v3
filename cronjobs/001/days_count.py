@@ -30,7 +30,7 @@ def days_count():
         hashs = []
         for i in range(days_gone_upgrade):
             hashs.append("#")
-        output.append(f"{''.join(hashs)}\t{round(( days_gone_upgrade / MAX_DAYS ) * 100)}% - {days_gone_upgrade}/{MAX_DAYS})\n")
+        output.append(f"{''.join(hashs)}\t{round(( days_gone_upgrade / MAX_DAYS ) * 100)}% - {days_gone_upgrade}/{MAX_DAYS}\n")
     
     return output
     
