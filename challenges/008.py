@@ -10,3 +10,6 @@
 #Your function should count the number of syllables and return it.
 #
 #For example, the call count("ho-tel") should return 2.
+
+def count(par: str):
+    return

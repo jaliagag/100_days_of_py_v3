@@ -7,3 +7,22 @@
 #If both functions are correct, calling remove_dots(add_dots(string)) should return back the original string for any string.
 #
 #(You may assume that the input to add_dots does not itself contain any dots.)
+
+def add_dots(par: str):
+    myl = list(par)
+    dotted = []
+    for index,i in enumerate(myl):
+        dotted.append(i)
+        if index != len(myl)-1:
+            dotted.append(".")
+    return "".join(dotted)
+
+def remove_dots(par: str):
+    myl = list(par)
+    final = []
+    for i in myl:
+        if i != ".":
+            final.append(i)
+    return "".join(final)
+
+print(remove_dots(add_dots("test")))
