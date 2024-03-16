@@ -12,4 +12,9 @@
 #For example, the call count("ho-tel") should return 2.
 
 def count(par: str):
-    return
+    return len(par.split("-"))
+
+print(count("ho-tel"))
+print(count("cat"))
+print(count("met-a-phor"))
+print(count("ter-min-a-tor"))
