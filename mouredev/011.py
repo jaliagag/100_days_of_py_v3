@@ -29,30 +29,29 @@ session.headers.update({"Authorization": f"Bearer {TOKEN}"})
 def get_user():
     return session.get("https://api.github.com/user").json()["login"]
 
+def write_to_file(filename: str, data: list):
+    f = open(f"{filename}.txt", "a")
+    f.write(f"{data[0]}, {data[1]}, {data[2]}\n")
+    f.close()
+
 def load_product(filename: str):
     product_name = input("Nombre del producto: ")
-    q_sold = int(input("Cantidad vendida: "))
-    price= int(input("Precio: "))
-
-    f = open(f"{filename}.txt", "a")
-
-    f.write(f"{product_name}, {q_sold}, {price} \n")
-
-
-    f.close()
+    q_sold = input("Cantidad vendida: ")
+    price= input("Precio: ")
+    return [product_name, q_sold, price]
 
 
 def create_file(filename: str):
-    f = open(f"{filename}.txt", "w")
-    name = input("Ingrese su nombre: ")
-    age = int(input("Ingrese su edad: "))
-    pr_lang = input("Cual es su lenguaje de programación favorito? ")
-
-    f.write(f"- Tu nombre: {name}\n")
-    f.write(f"- Tu edad: {age}\n")
-    f.write(f"- Lenguaje de programación favorito: {pr_lang}\n")
-
+    f = open(f"{filename}.txt", "a")
     f.close()
+    #    name = input("Ingrese su nombre: ")
+    #    age = int(input("Ingrese su edad: "))
+    #    pr_lang = input("Cual es su lenguaje de programación favorito? ")
+    #
+    #    f.write(f"- Tu nombre: {name}\n")
+    #    f.write(f"- Tu edad: {age}\n")
+    #    f.write(f"- Lenguaje de programación favorito: {pr_lang}\n")
+    #
 
 
 def read_file(filename: str):
@@ -82,16 +81,31 @@ def describe(filename: str):
     return False
 
 def update_product(filename: str):
-    read_file(filename)
+    read_file(filename) # muestro el archivo completo
     product = input("Ingrese el nombre del producto a modificar: ")
 
     f = open(f"{filename}.txt","r+")
-    for index, i in enumerate(f.readlines()):
-        print(index, i)
+    replaced_content = ""
+
+    for i in f:
+        if product in i.split(",")[0]:
+
+            print("Ingrese nuevos valores del producto")
+            product = load_product(filename)
+            to_string = ', '.join(product)
+
+            i = i.strip()
+            new_line = i.replace(i, to_string)
+            replaced_content = replaced_content + new_line + "\n"
+
+            f.write(replaced_content)
+            f.close()
+
+
         #if product in i.split(",")[0]:
         #    print(i)
         #    return True
-    #print(f"product `{product}` was not found")
+    print(f"product `{product}` was not found")
     f.close()
 
 menu = """
@@ -106,21 +120,30 @@ menu = """
 """
 if __name__ == "__main__":
     username = get_user()
+    create_file(username)
     print(menu)
     while True:
-        option = int(input("Que desea hacer? "))
-        if option == 1:
-            load_product(username)
-        elif option == 2:
-            read_file(username)
-        elif option == 3:
-            describe(username)
-        elif option == 4:
-            update_product(username)
-        elif option == 9:
-            print(menu)
-        elif option == 0:
-            delete_file(username)
+        try:
+            option = int(input("Que desea hacer? "))
+            if option == 1:
+                product = load_product(username)
+                print(product)
+                write_to_file(username, product)
+            elif option == 2:
+                read_file(username)
+            elif option == 3:
+                describe(username)
+            elif option == 4:
+                update_product(username)
+            elif option == 9:
+                print(menu)
+            elif option == 0:
+                delete_file(username)
+                exit()
+        except ValueError:
+            print("Ingrese solo numeros enteros")
+        except KeyboardInterrupt:
+            print("\nSaliendo...")
             exit()
 
 
