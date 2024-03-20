@@ -20,6 +20,7 @@
 
 import requests
 import os
+import re
 
 TOKEN = os.environ["GHPPT"]
 
@@ -74,7 +75,7 @@ def describe(filename: str):
 
     for i in f.readlines():
         if product in i.split(",")[0]:
-            print(i)
+            print(i, end="")
             return True
     print(f"product `{product}` was not found")
     f.close()
@@ -85,7 +86,6 @@ def update_product(filename: str):
     product = input("Ingrese el nombre del producto a modificar: ")
 
     f = open(f"{filename}.txt","r+")
-    replaced_content = ""
 
     for i in f:
         if product in i.split(",")[0]:
@@ -94,19 +94,15 @@ def update_product(filename: str):
             product = load_product(filename)
             to_string = ', '.join(product)
 
-            i = i.strip()
-            new_line = i.replace(i, to_string)
-            replaced_content = replaced_content + new_line + "\n"
+            f.write(re.sub(f"^{i}",to_string,i))
 
-            f.write(replaced_content)
             f.close()
+            return True
 
 
-        #if product in i.split(",")[0]:
-        #    print(i)
-        #    return True
     print(f"product `{product}` was not found")
     f.close()
+    return False
 
 menu = """
 1) Cargar productos
