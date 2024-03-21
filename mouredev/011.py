@@ -21,6 +21,9 @@
 import requests
 import os
 import re
+import sedpy
+import subprocess
+
 
 TOKEN = os.environ["GHPPT"]
 
@@ -94,22 +97,59 @@ def update_product(filename: str):
             product = load_product(filename)
             to_string = ', '.join(product)
 
-            f.write(re.sub(f"^{i}",to_string,i))
+            cmd = f"sedpy '{i.rstrip()}' '{to_string}' {filename}.txt >/dev/null 2>&1"
+            os.system(cmd)
 
             f.close()
+            print("Articulo actualizado!")
             return True
+    if to_string == "":
+        print(f"product `{product}` was not found")
+        f.close()
+        return False
 
+def sales_total(filename: str):
+    f = open(f"{filename}.txt","r+")
+    totals = 0
+    for i in f:
+        item = i.strip().split(',')
+        totals += int(item[1]) * int(item[2])
+        print(f"{item[0]} --> \t${int(item[1]) * int(item[2])}")
 
-    print(f"product `{product}` was not found")
+    print(f"Ventas totales hasta ahora ${totals}")
     f.close()
-    return False
+
+def delete_item(filename: str):
+    f = open(f"{filename}.txt","r+")
+    product = input("Ingrese el nombre del producto a eliminar: ")
+
+
+    for i in f:
+        if product in i.split(",")[0]:
+
+            confirm = input(f"Esta seguro de eliminar el item {i}? (Y/N) ")
+            if confirm == "Y":
+                cmd = f"sedpy '{i.rstrip()}' '{to_string}' {filename}.txt >/dev/null 2>&1"
+                os.system(cmd)
+
+                f.close()
+                print("Articulo actualizado!")
+            if to_string == "":
+                print(f"product `{product}` was not found")
+                f.close()
+                return False
+
+    f.close()
+
+
 
 menu = """
 1) Cargar productos
 2) Ver productos
 3) Ver producto especifico
 4) Modificar productos
-5) Ver totales de venta
+5) Eliminar producto
+6) Ver totales de venta
 
 9) Ver el menu
 0) Salir
@@ -131,6 +171,10 @@ if __name__ == "__main__":
                 describe(username)
             elif option == 4:
                 update_product(username)
+            elif option == 5:
+                delete_item(username)
+            elif option == 6:
+                sales_total(username)
             elif option == 9:
                 print(menu)
             elif option == 0:
