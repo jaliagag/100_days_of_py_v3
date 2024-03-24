@@ -36,7 +36,11 @@ def get_row_col(par: str, option: str):
             if int(div[1]):
                 numero = int(div[1])
                 if numero > 0 and numero < 4:
-                    pass
+                    #column = columns[letra]
+                    board[columns[letra]][numero-1] = option
+                    for i in board:
+                        print(i)
+                    return True
                 else:
                     print(f"{numero} tiene un valor muy alto o muy bajo, los valores tienen que ser 1, 2 o 3")
             else:
@@ -45,13 +49,8 @@ def get_row_col(par: str, option: str):
         except ValueError:
             print(f"Formato `{par}` incorrecto. El formato es A1")
         
-    column = columns[letra]
-    print(f"columns {columns[letra]}\t rows {numero}")
-    board[column][numero-1] = option
-    for i in board:
-        print(i)
 
-    return par
+    return False
 
 
 
@@ -62,14 +61,24 @@ for i in range(9):
     print(f"Turno {turn}")
 
     if turn % 2 == 0:
-        p2 = input("Ingrese su jugada: ")
-        get_row_col(p2,"X")
+        p2 = input("(P2) Ingrese su jugada: ")
+        if p2 in plays:
+            print("Error - la casilla ya esta ocupada")
+        else:
+            plays.append(p2)
+            if get_row_col(p2,"X"):
+                turn += 1
+            else:
+                pass
 
-        turn += 1
     else:
-        p1 = input("Ingrese su jugada: ")
-        get_row_col(p1,"O")
-        turn += 1
+        p1 = input("(P1) Ingrese su jugada: ")
+        if p1 in plays:
+            print("Error - la casilla ya esta ocupada")
+        else:
+            plays.append(p1)
+            get_row_col(p1,"O")
+            turn += 1
 
 
 #get_row_col("a2")
