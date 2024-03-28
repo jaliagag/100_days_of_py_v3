@@ -11,3 +11,7 @@ def convert(par: list):
 
 print(convert([1,2]))
 #[i for i in range(len(lst)) if lst[i]=='Alice']
+
+# using map
+#def convert(ns):
+#    return list(map(str, ns))

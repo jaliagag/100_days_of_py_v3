@@ -27,16 +27,14 @@
 
 def validate(par: str):
     spar = str(par)
-    open = "("
-    close = ")"
     if "def" not in spar:
         return "missing def"
     elif ":" not in spar:
         return "missing :"
     elif "(" not in spar and ")" not in spar:
         return "missing paren"
-    #elif () in spar:
-    #    return "missing param"
+    elif r"\\(\\)" in spar:
+        return "missing param"
     elif "    " not in spar:
         return "missing indent"
     elif "validate" not in spar:
@@ -50,5 +48,6 @@ def validate(par: str):
 
 
 
+print(validate('def foo():\n print(123)'))
 print(validate('\ndef validate(par):\n spar = str(par)\n if "def" not in spar:\n return    "missing def"\n elif ":" not in spar:\n return "missing :"\n elif "(" not in spar and ")" not in spar:\n return "missing paren"\n elif "()" in spar:\n return "missing param"\n elif " " not in spar:\n return "missing indent"\n elif "validate" not in spar:\n return "wrong name"\n elif "return" not in spar:\n return "missing return"\n else:\n return True\n'))
 
