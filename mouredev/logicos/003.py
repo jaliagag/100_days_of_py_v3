@@ -9,8 +9,21 @@
 def fibo(a: int, b: int):
     return a + b
 
+start = 0
+increment = 1
+answer = 0
+
+print(start)
+print(increment)
+
 for i in range(1,51):
-    fibo(i, i)
+    answer = fibo(start, increment)
+    start = increment
+    increment = answer
+
+    print(answer)
+    #print(f"\t{start}\t {increment}")
+
 
 
 
