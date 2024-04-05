@@ -130,5 +130,6 @@ class HealthBar:
           f"{self.barrie}")
 ```
 
+Day 26: deployed Flask app [link](https://github.com/jaliagag/python_rest_api/tree/dev)
 
 
