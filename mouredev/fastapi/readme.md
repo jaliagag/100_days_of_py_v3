@@ -37,3 +37,10 @@ async def root():
 `localhost:8000/docs`
 `localhost:8000/redoc`
 
+## path vs dynamic
+
+- solemos usar path, o sea `users/1` cuando consideramos que es un parametro obligatorio, fijo; la url puede ser algo dinamico.
+- solemos usar query para los parametros que pueden no ser necesarios para hacer una peticion. por ejemplo, al hacer una peticion a una db. forma parte de la query la paginacion, decirle a la API "dame las publicaciones del usuario X de la 1 a la 10"; cuando estamos por la publicacion 7 (ponele), le pedimos a la API que nos de los 10 siguientes. es algo variable, que puede ir o no ir.
+
+el `?` solo va en el primer parametro del query string; despues, para concatenar, usamos `&`
+
