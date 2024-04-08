@@ -44,3 +44,37 @@ async def root():
 
 el `?` solo va en el primer parametro del query string; despues, para concatenar, usamos `&`
 
+## status codes
+
+cuando lanzamos un error, usamos `raise`:
+
+```py
+@app.post("/user/", status_code=201) # << codigo de respuesta por defecto, se declara en la cabecera
+async def create_user(user: User):
+    if type(search_user(user.id)) == User:
+        raise HTTPException(status_code=204, detail="user already exists")
+    else:
+        user_list.append(user)
+        return {"status": "OK - user successfully added"}
+```
+
+`raise` lo que hace es "propagar" la excepcion.
+
+Para que lo que se devuelva no sea un sucio string, tenemos que usar `response_model`: `@router.post("/", response_model=User, status_code=201)`. esto, en swagger se vera que lo que devuelve el status code del post de los usuarios, no es un string, si no un json.
+
+## recursos estaticos
+
+acceder a imagenes, pdfs... 
+
+```py
+from fastapi.staticfiles import StaticFiles
+...
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+```
+
+## basic auth
+
+llamada /users/me --> devuelve 401, no autenticado
+primero hay que obtener un token, con un post a /login con un form 
+
