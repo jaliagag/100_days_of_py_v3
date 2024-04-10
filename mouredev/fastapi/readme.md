@@ -78,3 +78,27 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 llamada /users/me --> devuelve 401, no autenticado
 primero hay que obtener un token, con un post a /login con un form 
 
+## depends
+
+- [link1 - Depends](https://fastapi.tiangolo.com/tutorial/dependencies/)
+- [link2 - security](https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/)
+
+> Annotated in python allows developers to declare the type of a reference and provide additional information related to it.
+> 
+> `name = Annotated[str, "first letter is capital"]`
+> 
+> This tells that `name` is of type str and that name[0] is a capital letter.
+> 
+> On its own Annotated does not do anything other than assigning extra information (metadata) to a reference. It is up to another code, which can be a library, framework or your own code, to interpret the metadata and make use of it.
+> 
+> For example, FastAPI uses Annotated for data validation:
+> 
+> `def read_items(q: Annotated[str, Query(max_length=50)])`
+> 
+> Here the parameter q is of type str with a maximum length of 50. This information was communicated to FastAPI (or any other underlying library) using the Annotated keyword.
+
+Para ver la informacion de `users/me`, dependo de `current_user` que depende de `oauth2`. pasos para acceder a `users/me`:
+
+- ir a `/login` - esto nos da un diccionario con un token
+- vamos a `/users/me`:
+  - este usa `current/user` y le pasa un token 
