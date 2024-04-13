@@ -5,16 +5,16 @@ from jose import jwt, JWTError
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
 
-#app = APIrouter(prefix="/basicauth", 
-#                   tags=["jwtauth"], # para la documentacion
-#                   responses={ 404: { "message": "not found" } }
-#                   )
+
+router = APIRouter(prefix="/jwtauth",
+                   tags=["jwtauth"],
+                   responses={status.HTTP_404_NOT_FOUND: {"message": "No encontrado"}})
 
 ALGORITHM = "HS256"
-ACCESS_TOKEN_DURATION = 10
+ACCESS_TOKEN_DURATION = 60
 SECRET = "60cb2be5a2ff3e8d5a129dea12edbfe210d13520b0a4008f99cc68b58c21e9cc"
 
-app = FastAPI()
+#router = FastAPI()
 
 oauth2 = OAuth2PasswordBearer(tokenUrl="login")
 crypt = CryptContext(schemes=["bcrypt"])
@@ -77,13 +77,10 @@ async def auth_user(token: str = Depends(oauth2)):
         )
  
     try:
-        #username = jwt.decode(token, key=SECRET, algorithms=[ALGORITHM]).get("sub")
         username = jwt.decode(token, SECRET, algorithms=[ALGORITHM]).get("sub")
         if username is None:
             raise exception
 
-    #except Exception as error:
-    #    print(error)
     except JWTError:
         raise exception
 
@@ -99,7 +96,7 @@ async def current_user(user: User = Depends(auth_user)):
 
     return user
 
-@app.post("/login")
+@router.post("/login")
 async def login(form: OAuth2PasswordRequestForm = Depends()):
     user_db = users_db.get(form.username)
     if not user_db:
@@ -111,15 +108,18 @@ async def login(form: OAuth2PasswordRequestForm = Depends()):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="password incorrecta")
 
     access_token = {
-        "subject" : user.username,
+        "sub" : user.username,
         "exp" : datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_DURATION),
     }
 
     return {"access_token": jwt.encode(access_token, key=SECRET, algorithm=ALGORITHM), "token_type": "bearer"}
 
-@app.get("/users/me")
+@router.get("/users/me")
 async def me(user: User = Depends(current_user)):
-    return user
+    try:
+        return user
+    except Exception as error:
+        print("An error occurred:", error)
 #
 #
 #

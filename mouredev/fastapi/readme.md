@@ -102,3 +102,20 @@ Para ver la informacion de `users/me`, dependo de `current_user` que depende de 
 - ir a `/login` - esto nos da un diccionario con un token
 - vamos a `/users/me`:
   - este usa `current/user` y le pasa un token 
+
+## jwt auth
+
+Generar contrasena random: `openssl rand -hex 32` 
+
+Hay un error que parece estar contenido:
+
+```sh
+(trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/Users/josemanuelfranciscoaliaga/Documents/myprojects/100_days_of_py_v3/mouredev/fastapi/virtual-fapi/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+```
+
+Al parecer, [la solucion](https://github.com/pyca/bcrypt/issues/684#issuecomment-1836872510) es usar `bcrypt==4.0.1`
