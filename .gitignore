@@ -3,3 +3,4 @@ passwords.py
 **/virtual
 **/virtual-fapi
 *.bkp
+**/.DS_Store

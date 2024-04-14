@@ -124,4 +124,4 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 
 Al parecer, [la solucion](https://github.com/pyca/bcrypt/issues/684#issuecomment-1836872510) es usar `bcrypt==4.0.1`
 
-[diagrama jwt](./jwt_diagram.drawio)
+![diagrama jwt](./jwt_diagram.svg)
