@@ -82,6 +82,8 @@ primero hay que obtener un token, con un post a /login con un form
 
 - [link1 - Depends](https://fastapi.tiangolo.com/tutorial/dependencies/)
 - [link2 - security](https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/)
+- [youtube1](https://www.youtube.com/watch?v=Kq7ezzVInCA)
+- [youtube2](https://www.youtube.com/watch?v=jJDzJg3O9ZQ)
 
 > Annotated in python allows developers to declare the type of a reference and provide additional information related to it.
 > 
@@ -103,6 +105,8 @@ Para ver la informacion de `users/me`, dependo de `current_user` que depende de 
 - vamos a `/users/me`:
   - este usa `current/user` y le pasa un token 
 
+
+
 ## jwt auth
 
 Generar contrasena random: `openssl rand -hex 32` 
@@ -119,3 +123,5 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 ```
 
 Al parecer, [la solucion](https://github.com/pyca/bcrypt/issues/684#issuecomment-1836872510) es usar `bcrypt==4.0.1`
+
+[diagrama jwt](./jwt_diagram.drawio)

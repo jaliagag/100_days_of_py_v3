@@ -112,7 +112,7 @@ async def login(form: OAuth2PasswordRequestForm = Depends()):
         "exp" : datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_DURATION),
     }
 
-    return {"access_token": jwt.encode(access_token, key=SECRET, algorithm=ALGORITHM), "token_type": "bearer"}
+    return {"access_token": jwt.encode(access_token, key=SECRET, algorithm=ALGORITHM), "token_type": "bearer"} #<<<<
 
 @router.get("/users/me")
 async def me(user: User = Depends(current_user)):

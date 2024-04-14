@@ -2,3 +2,4 @@ passwords.py
 **/__pycache__/
 **/virtual
 **/virtual-fapi
+*.bkp

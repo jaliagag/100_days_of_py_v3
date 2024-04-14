@@ -1,0 +1,134 @@
+<mxfile host="Electron" modified="2024-04-13T22:28:56.404Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="Ig4sGBXL8KPyGekvi6Se" version="23.1.5" type="device">
+  <diagram name="Page-1" id="QRTiP3OVTcrqJ9LIu5nM">
+    <mxGraphModel dx="1653" dy="1052" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-1" value="/login" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="210" width="830" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-2" target="l4E94Xorv-IhpLXJ5wXI-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-2" value="POST a /login form con username y password" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="140" width="830" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-4" target="l4E94Xorv-IhpLXJ5wXI-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-4" target="l4E94Xorv-IhpLXJ5wXI-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-4" value="user_db" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=29;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="140" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-5" value="username del formulario" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;" vertex="1" parent="l4E94Xorv-IhpLXJ5wXI-4">
+          <mxGeometry y="29" width="140" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-7" value="user" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=29;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="364" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-8" value="username del formulario&lt;br&gt;busca en db con contraseña" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;" vertex="1" parent="l4E94Xorv-IhpLXJ5wXI-7">
+          <mxGeometry y="29" width="140" height="61" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-10" target="l4E94Xorv-IhpLXJ5wXI-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-10" value="evalúa en la línea 107 la contraseña del formulario y la contraseña en la base de datos" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="420" width="185" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-11" value="el usuario no está en la base de datos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="280" y="227" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-13" value="user.password" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-8" target="l4E94Xorv-IhpLXJ5wXI-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-14" value="" style="shape=mxgraph.mockup.markup.redX;fillColor=#ff0000;html=1;shadow=0;whiteSpace=wrap;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="220" y="247" width="13" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-15" value="Crea un diccionario llamado access_token con el nombre del usuario y una fecha de expiración" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="400" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-17" value="Devuelve en la línea 115 un json con el token jwt (jwt.encrypt) e informa que es de tipo bearer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="530" y="224" width="280" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-16" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.security.token;" vertex="1" parent="1">
+          <mxGeometry x="520" y="334" width="41" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-18" value="contraseña incorrecta" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="260" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.425;entryY=0.967;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-10" target="l4E94Xorv-IhpLXJ5wXI-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-20" value="" style="shape=mxgraph.mockup.markup.redX;fillColor=#ff0000;html=1;shadow=0;whiteSpace=wrap;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="340" y="380" width="13" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.418;entryY=0.993;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-15" target="l4E94Xorv-IhpLXJ5wXI-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-24" value="/users/me" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="520" width="830" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-25" value="&lt;b&gt;&lt;u&gt;/login&lt;/u&gt;&lt;/b&gt;: devuelve un jwt&lt;br&gt;&lt;b&gt;&lt;u&gt;/users/me&lt;/u&gt;&lt;/b&gt;: usa el jwt para ver la información del usuario" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="410" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-26" target="l4E94Xorv-IhpLXJ5wXI-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="780" />
+              <mxPoint x="270" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-35" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="l4E94Xorv-IhpLXJ5wXI-33">
+          <mxGeometry x="-0.1509" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-26" value="función principal: &lt;b&gt;&lt;u&gt;me&lt;/u&gt;&lt;/b&gt;; devuelve el usuario sin contraseña en formato json que recibe de &lt;b&gt;&lt;u&gt;current_user&lt;/u&gt;&lt;/b&gt;&lt;br&gt;DEPENDE de current_user" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="820" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-32" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-27" target="l4E94Xorv-IhpLXJ5wXI-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-27" value="función &lt;b&gt;&lt;u&gt;current_user&lt;/u&gt;&lt;/b&gt;: comprueba si el campo del usuario `disabled` está en True o en False; si está en false, no continúa. Si está habilitado, devuelve el usuario a &lt;b&gt;&lt;u&gt;me&lt;/u&gt;&lt;/b&gt;.&lt;br&gt;DEPENDE de &lt;b&gt;&lt;u&gt;auth_suer&lt;/u&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="23" y="670" width="330" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-29" target="l4E94Xorv-IhpLXJ5wXI-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-37" value="3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="l4E94Xorv-IhpLXJ5wXI-31">
+          <mxGeometry x="0.1523" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-29" value="función &lt;b&gt;auth_user&lt;/b&gt;: recibe un &lt;b&gt;token&lt;/b&gt;. en la línea 80, si existe el nombre del usuario, lo busca y lo devuelve sin contraseña; si no existe o algún otro error, devuelve 401, usuario no autorizado; si está expirado, también falla.&lt;br&gt;DEPENDE de oauth2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="530" width="590" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-16" target="l4E94Xorv-IhpLXJ5wXI-29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="500" />
+              <mxPoint x="630" y="500" />
+              <mxPoint x="630" y="565" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.579;entryY=1.039;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="l4E94Xorv-IhpLXJ5wXI-27" target="l4E94Xorv-IhpLXJ5wXI-29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="650" />
+              <mxPoint x="362" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l4E94Xorv-IhpLXJ5wXI-36" value="2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="l4E94Xorv-IhpLXJ5wXI-34">
+          <mxGeometry x="-0.4061" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
