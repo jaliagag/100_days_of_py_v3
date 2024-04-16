@@ -125,3 +125,7 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 Al parecer, [la solucion](https://github.com/pyca/bcrypt/issues/684#issuecomment-1836872510) es usar `bcrypt==4.0.1`
 
 ![diagrama jwt](./jwt_diagram.svg)
+
+## schemas
+
+en la carpeta schemas vamos a tener operaciones que sean capaces de ayudarnos a trabajar entre lo que son los modelos y como se estan tratando los datos en base de datos. el schema user transforma lo que obtiene de base de datos en algo que esta esperando nuestro objeto de modelo que es `user`

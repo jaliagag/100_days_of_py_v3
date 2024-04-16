@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from routers import products, users, basic_auth_users, jwt_auth
+from routers import products, users, basic_auth_users, jwt_auth, users_db
 
 app = FastAPI() # instancia de fatapi
 favicon_path = "favicon.ico"
@@ -11,6 +11,7 @@ app.include_router(products.router)
 app.include_router(users.router)
 app.include_router(basic_auth_users.router)
 app.include_router(jwt_auth.router)
+app.include_router(users_db.router)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
