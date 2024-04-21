@@ -48,16 +48,12 @@ async def create_user(user: User):
 
 @router.put("/", response_model=User)
 async def update_user(user: User):
-    user_dict = dict(user)
-    del user_dict["id"]
-    print(user_dict)
     try:
+        user_dict = dict(user)
         db_client.local.users.find_one_and_replace({"_id": ObjectId(user.id)}, user_dict)
 
     except:
-        return {"error": "user not updated"}
-
-    return search_user("_id", ObjectId(user.id))
+        return {"error": "user not found"}
 
 
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
