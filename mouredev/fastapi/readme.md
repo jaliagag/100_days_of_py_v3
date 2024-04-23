@@ -131,3 +131,7 @@ Al parecer, [la solucion](https://github.com/pyca/bcrypt/issues/684#issuecomment
 en la carpeta schemas vamos a tener operaciones que sean capaces de ayudarnos a trabajar entre lo que son los modelos y como se estan tratando los datos en base de datos. el schema user transforma lo que obtiene de base de datos en algo que esta esperando nuestro objeto de modelo que es `user`
 
 Por ejemplo, en este caso, vemos que en mongodb tenemos el campo `_id` y nuestra clase usa el campo `id`; usamos el esquema para transformar `_id` en `id` y que sea aceptable para nuestra clase `User`. Ademas, crea el esquema llamado `users` en la base de datos
+
+## mongodb atlas connection
+
+`mongosh "mongodb+srv://cluster0.wllrqzs.mongodb.net/" --apiVersion 1 --username jmfaliaga --password $PASSWORD`
