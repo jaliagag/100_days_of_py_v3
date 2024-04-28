@@ -4,32 +4,13 @@ from db.client import client
 from datetime import datetime
 from tabulate import tabulate
 
-
-database = client["tareas_app"]
-collection = database["tareas"]
-datos = collection.find()
-
-
-#async def create_user(user: User):
-#
-#    if type(search_user("email", user.email)) == User:
-#        raise HTTPException(
-#        status_code=status.HTTP_404_NOT_FOUND, detail="El usuario ya existe")
-#
-#    user_dict = dict(user)
-#    del user_dict["id"]
-#
-#    id = db_client.users.insert_one(user_dict).inserted_id
-#
-#    new_user = user_schema(db_client.users.find_one({"_id": id}))
-#
-#    return User(**new_user) # ** para indicar que le paso todos los campos
+now = datetime.now()
 
 def ver_tareas(info):
     data = []
     for i in info:
-        data.append([i["titulo"],i["fecha_creacion"],i["fecha_limite"]])
-    col_names = ["Tarea", "Fecha creacion", "Fecha limite"]
+        data.append([i["titulo"],i["fecha_creacion"],i["fecha_limite"],i["description"]])
+    col_names = ["Tarea", "Fecha creacion", "Fecha limite", "Descripcion"]
     print(tabulate(data, headers=col_names, tablefmt="fancy_grid"))
 
 def crear_tarea(date: str):
@@ -42,14 +23,18 @@ def crear_tarea(date: str):
         "titulo": titulo,
         "description": description,
         "fecha_creacion": fecha_creacion,
-        "fecha_limite": fecha_limite
+        "fecha_limite": fecha_limite,
+        "estado": True
     }
 
-    collection.insert_one(tarea)
+    client.tareas_app.tareas.insert_one(tarea)
 
-    return
+def eliminar_tarea():
+    print("Estas son las tareas: ")
+    ver_tareas(client.tareas_app.tareas.find())
+    deleme = input()
+    client.tareas_app.tareas.find_one_and_delete()
 
-now = datetime.now()
 # menu de opciones
 print(f"\nGestor de tareas NotPip - {now.strftime("%d-%m-%Y")}")
 while True:
@@ -61,18 +46,21 @@ while True:
     5. Salir
     """)
 
-    opcion = input("Elija una opcion: ")
+    opcion = input("Elija una opcion:\n")
 
     match opcion:
         case "1":
             crear_tarea(now.strftime("%d-%m-%Y"))
         case "2":
-            ver_tareas(datos)
+            ver_tareas(client.tareas_app.tareas.find())
         case "3":
             pass
         case "4":
             pass
         case "5":
-            pass
+            print("Hasta la proxima!")
+            exit()
         case _:
             pass
+
+client.close()
